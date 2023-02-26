@@ -370,9 +370,7 @@ int main()
                         Serial.print(theta, DEC);
                         Serial.print(";\n");
                         /* put your controller here */
-
                         #include "OwnCode/Controller.c" //here the controller function written by the students is included
-
                         /*=============*/
                         /* end of controller */
 

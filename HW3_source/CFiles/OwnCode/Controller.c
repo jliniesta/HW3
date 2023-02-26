@@ -2,7 +2,8 @@
 // task = 1: Task 6
 // task = 2: Task 8 or Task 9
 task = 1;
-
+error_xk = xg - x0;
+error_yk = yg - y0;
 //
 // TASK 6
 //
@@ -10,9 +11,17 @@ if (task == 1)
 {
     // Calculate error when v=0
     thetaR = atan2(error_yk,error_xk)*(180/pi);
-    error_theta = thetaR - theta;
-    w = Kpsi_task6 * error_theta;
-    v = 0;
+    if ((thetaR == -180 || thetaR == 180) && (theta == 180 || theta == -179 || theta == 179)) 
+    {
+        w = 0;
+        v = 0;
+    }
+    else 
+    {
+        error_theta = thetaR - theta;
+        w = Kpsi_task6 * error_theta;
+        v = 0;
+    }
 }
 
 // 
